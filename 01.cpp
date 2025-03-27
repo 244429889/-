@@ -6,7 +6,7 @@ void setup(){
   pinMode(LED_BUILTIN,OUTPUT);
   pinMode(SECOND_LED,OUTPUT);
   analogSetAttenuation(ADC_11db);
-  analogSetwidth(BITS);
+  analogSetWidth(BITS);
   ledcSetup(0,5000,BITS);
   ledcAttachPin(LED_BUILTIN,0);
   ledcSetup(1,5000,BITS);
@@ -15,7 +15,7 @@ void setup(){
 void loop(){
   uint16_t val = analogRead(32);
   Serial.printf("val=%u\n",val);
-  ledcwrite(0,val);
-  ledcwrite(1,(4095 - val));
+  ledcWrite(0,val);
+  ledcWrite(1,(4095 - val));
   delay(1000);
 }
